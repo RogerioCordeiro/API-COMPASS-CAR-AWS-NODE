@@ -12,5 +12,11 @@ export const CarsRepository = dataSource.getRepository(Car).extend({
     return this.createQueryBuilder('cars')
       .where('cars.brand = :brand', { brand })
       .getMany()
+  },
+
+  findByPlate(license_plate: string) {
+    return this.createQueryBuilder('cars')
+      .where('cars.license_plate = :license_plate', { license_plate })
+      .getOne()
   }
 })

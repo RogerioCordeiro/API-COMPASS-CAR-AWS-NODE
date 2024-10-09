@@ -1,3 +1,4 @@
+import AppError from '../../../errors/AppError'
 import { CarsRepository } from '../repositories/CarsRepository'
 
 interface ICreateCar {
@@ -19,10 +20,10 @@ export class CreateCarsService {
     year,
     price,
     items
-  }: ICreateCar) {
-    const carAlreadyExists = await CarsRepository.findByModel(model)
-    if (carAlreadyExists) {
-      throw new Error('Car already exists')
+  }: ICreateCar): Promise<ICreateCar | AppError> {
+    const carAlreadyExists = await CarsRepository.findByPlate(license_plate)
+    if (carAlreadyExists && carAlreadyExists.status === 'ativo') {
+      return new AppError('Car already exists', 409)
     }
 
     const car = CarsRepository.create({

@@ -43,4 +43,19 @@ carsRouter.delete(
   carsController.delete
 )
 
+carsRouter.put('/:id',
+  celebrate({
+    [Segments.BODY]: {
+      license_plate: Joi.string(),
+      brand: Joi.string(),
+      model: Joi.string(),
+      year: Joi.number(),
+      km: Joi.number(),
+      price: Joi.number(),
+      items: Joi.array().items(Joi.string()),
+      status: Joi.string().valid('ativo', 'inativo')
+    }
+  }),
+  carsController.update
+)
 export default carsRouter

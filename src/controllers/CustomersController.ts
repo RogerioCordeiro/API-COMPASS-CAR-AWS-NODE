@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { CreateCustomerService } from '@customers/services/CreateCustomerService'
+import { CreateCustomerService } from 'modules/customers/services/CreateCustomerService'
 
 export default class CustomersController {
   public async create(req: Request, res: Response): Promise<any> {

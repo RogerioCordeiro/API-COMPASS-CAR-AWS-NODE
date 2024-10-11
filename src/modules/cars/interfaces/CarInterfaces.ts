@@ -1,4 +1,4 @@
-import { Car } from '@cars/entities/Car'
+import { Car } from 'modules/cars/entities/Car'
 
 export interface IListParams {
   page: number

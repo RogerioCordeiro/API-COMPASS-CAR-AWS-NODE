@@ -1,6 +1,6 @@
 import { dataSource } from '@database/data-source'
-import { Car } from '@cars/entities/Car'
-import { ISearchParams, ICarPaginate } from '@cars/interfaces/CarInterfaces'
+import { Car } from 'modules/cars/entities/Car'
+import { ISearchParams, ICarPaginate } from 'modules/cars/interfaces/CarInterfaces'
 
 export const CarsRepository = dataSource.getRepository(Car).extend({
   async findByModel(model: string) {

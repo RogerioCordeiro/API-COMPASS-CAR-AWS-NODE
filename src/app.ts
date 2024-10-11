@@ -5,8 +5,8 @@ import express, { Request, Response, NextFunction } from 'express'
 import { errors } from 'celebrate'
 import { Router } from 'express'
 import AppError from '@errors/AppError'
-import carsRouter from '@cars/routes/cars.routes'
-import customersRouter from '@customers/routes/CustomersRoutes'
+import carsRouter from 'modules/cars/routes/cars.routes'
+import customersRouter from 'modules/customers/routes/CustomersRoutes'
 
 export const app = express()
 const routes = Router()

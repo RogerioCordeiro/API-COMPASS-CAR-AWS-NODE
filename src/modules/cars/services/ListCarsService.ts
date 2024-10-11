@@ -1,6 +1,6 @@
 import AppError from '@errors/AppError'
-import { CarsRepository } from '@cars/repositories/CarsRepository'
-import { ICarPaginate, IListParams } from '@cars/interfaces/CarInterfaces'
+import { CarsRepository } from 'modules/cars/repositories/CarsRepository'
+import { ICarPaginate, IListParams } from 'modules/cars/interfaces/CarInterfaces'
 
 export class ListCarService {
   public async execute({

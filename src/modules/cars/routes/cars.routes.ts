@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { celebrate, Joi, Segments } from 'celebrate'
-import CarsController from '@controllers/CarsController'
+import CarsController from 'modules/cars/controllers/CarsController'
 
 const carsRouter = Router()
 const carsController = new CarsController()

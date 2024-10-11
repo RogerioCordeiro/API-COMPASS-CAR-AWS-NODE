@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
-import { CreateCarsService } from '@cars/services/CreateCarService'
-import { ShowCarService } from '@cars/services/ShowCarService'
-import { ListCarService } from '@cars/services/ListCarsService'
-import { DeleteCarService } from '@cars/services/DeleteCarService'
-import { UpdateCarService } from '@cars/services/UpdateCarService'
+import { CreateCarsService } from 'modules/cars/services/CreateCarService'
+import { ShowCarService } from 'modules/cars/services/ShowCarService'
+import { ListCarService } from 'modules/cars/services/ListCarsService'
+import { DeleteCarService } from 'modules/cars/services/DeleteCarService'
+import { UpdateCarService } from 'modules/cars/services/UpdateCarService'
 
 
 

@@ -4,7 +4,7 @@ import { ShowCarService } from '@cars/services/ShowCarService'
 import { ListCarService } from '@cars/services/ListCarsService'
 import { DeleteCarService } from '@cars/services/DeleteCarService'
 import { UpdateCarService } from '@cars/services/UpdateCarService'
-import { request } from 'http'
+
 
 
 export default class UsersController {

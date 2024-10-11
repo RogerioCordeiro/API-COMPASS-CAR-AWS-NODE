@@ -25,15 +25,20 @@ export class UpdateCarService {
     items,
     status
   }: IRequest): Promise<any> {
+    const minYear = new Date().getFullYear() - 10
+    const maxYear = minYear + 11
+
     const car = await CarsRepository.findByID(id)
     if (!car) {
       throw new AppError('Car not found', 404)
     }
 
-    const carAlreadyExists = await CarsRepository.findByPlate(license_plate)
-
     if(car.status === 'excluido'){
       throw new AppError('Car not found', 404)
+    }
+
+    if(year > maxYear || year < minYear){
+      throw new AppError(`Car year must be between ${minYear} and ${maxYear}`, 400)
     }
 
     car.license_plate = license_plate;

@@ -43,7 +43,7 @@ carsRouter.delete(
   carsController.delete
 )
 
-carsRouter.put('/:id',
+carsRouter.patch('/:id',
   celebrate({
     [Segments.BODY]: {
       license_plate: Joi.string(),

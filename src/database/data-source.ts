@@ -15,11 +15,7 @@ import { CustomersAlterColumnBirthDate1728673337247 } from './migrations/1728673
 
 export const dataSource = new DataSource({
   type: 'postgres',
-  host: process.env.DATABASE_URL,
-  port: 5432,
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
+  url: process.env.DATABASE_URL,
   synchronize: false,
   logging: false,
   entities: [User, Car, Order, Customer],

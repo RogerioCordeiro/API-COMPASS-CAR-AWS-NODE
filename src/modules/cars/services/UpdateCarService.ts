@@ -20,6 +20,11 @@ export class UpdateCarService {
       throw new AppError('car not found', 404)
     }
 
+    const carAlreadyExists = await CarsRepository.findByPlate(license_plate)
+    if (carAlreadyExists?.some((car) => car.status === CarStatus.ACTIVE)) {
+      throw new AppError('car already exists', 409)
+    }
+
     car.license_plate = license_plate
     car.brand = brand
     car.model = model

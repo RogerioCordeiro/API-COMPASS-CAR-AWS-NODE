@@ -4,9 +4,17 @@
   "description": "Desafio 2 CompassUol",
   "main": "index.js",
   "scripts": {
+    "start:aws": "NODE_ENV=production pnpm run build && ts-node -r tsconfig-paths/register dist/server.js",
+    "start": "pnpm run build && ts-node -r tsconfig-paths/register dist/server.js",
+    "typeorm:start:aws": "NODE_ENV=production npx typeorm-ts-node-commonjs -d ./src/database/data-source migration:run && pnpm run build && ts-node -r tsconfig-paths/register dist/server.js",
+    "typeorm:start": "npx typeorm-ts-node-commonjs -d ./src/database/data-source migration:run && pnpm run build && ts-node -r tsconfig-paths/register dist/server.js",
+    "start:pm2": "pm2 start npm --name 'compasscar-api' -- run typeorm:start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts",
     "build": "npx tsc",
+    "pm2:list": "pm2 list",
+    "pm2:stop": "pm2 stop compasscar-api",
+    "pm2:restart": "pm2 restart compasscar-api",
     "typeorm:create": "npx typeorm-ts-node-commonjs migration:create",
     "typeorm:run": "npx typeorm-ts-node-commonjs -d ./src/database/data-source migration:run"
   },

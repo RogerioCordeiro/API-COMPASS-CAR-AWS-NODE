@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:16-alpine
-    container_name: compasscar
+    container_name: compasscar-container
     restart: unless-stopped
     ports:
       - 5432:5432
@@ -17,5 +15,5 @@ services:
       timeout: 5s
       retries: 5
     volumes:
-      - ~${DOCKER_VOLUMES}:/var/lib/postgressql/data
+      - ${DOCKER_VOLUMES}:/var/lib/postgresql/data
       - ./src/database/init/:/docker-entrypoint-initdb.d/

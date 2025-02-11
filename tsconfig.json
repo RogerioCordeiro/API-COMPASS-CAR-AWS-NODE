@@ -4,8 +4,9 @@
     "module": "commonjs",
     "lib": ["es6"],
     "allowJs": true,
-    "outDir": "./build",
+    "outDir": "./dist",
     "rootDir": "./src",
+    "sourceMap": true,
     "strict": true,
     "noImplicitAny": true,
     "strictPropertyInitialization": false,
@@ -14,24 +15,21 @@
     "emitDecoratorMetadata": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "typeRoots": ["@types", "./node_modules/@types", "./src/types"],
+    "typeRoots": ["./src/types", "./node_modules/@types"],
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "@users/*": ["modules/users/*"],
-      "@customers/*": ["modules/customers/*"],
-      "@cars/*": ["modules/cars/*"],
-      "@orders/*": ["modules/orders/*"],
-      "@auth/*": ["modules/auth/*"],
-      "@utils/*": ["database/utils/*"],
-      "@datasource": ["database/data-source"],
-      "@database/*": ["database/*"],
-      "@errors/*": ["errors/*"]
+      "@users/*": ["./src/modules/users/*"],
+      "@customers/*": ["./src/modules/customers/*"],
+      "@cars/*": ["./src/modules/cars/*"],
+      "@orders/*": ["./src/modules/orders/*"],
+      "@auth/*": ["./src/modules/auth/*"],
+      "@utils/*": ["./src/database/utils/*"],
+      "@datasource": ["./src/database/data-source"],
+      "@database/*": ["./src/database/*"],
+      "@errors/*": ["./src/errors/*"]
     }
   },
-  "exclude": ["eslint.config.mjs", "build"],
-  "scripts": {
-    "build": "tsc",
-    "start": "node ./build/app.js"
-  }
+  "include": ["src/**/*"],
+  "exclude": ["eslint.config.mjs", "build", "dist"]
 }
